@@ -32,5 +32,16 @@ namespace NotePad
                 txtPlaceholder.Text = "Digite suas anotações aqui...";
             }
         }
+
+        private void btnSalvarNomeArquivo_Click(object sender, RoutedEventArgs e)
+        {
+            string data = System.DateTime.Now.ToString("dd-MM-yy");
+            string nomeArquivo = $"anotacoes_{data}";
+            if(txtNomeArquivo.Text.Length > 0)
+            {
+                nomeArquivo = txtNomeArquivo.Text;
+            }
+            System.Diagnostics.Debug.WriteLine(nomeArquivo);
+        }
     }
 }

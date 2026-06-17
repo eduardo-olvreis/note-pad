@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="291" Width="357" Topmost="True">
     <Grid>
-        <Label x:Name="lblPrincipal" Content="Anotações" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Semibold"/>
+        <Label x:Name="lblPrincipal" Content="Anotações" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Semibold"/>
         <Grid Margin="10,88,10,10">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0*"/>
@@ -24,5 +24,8 @@
                  Padding="5"
                  TextChanged="txtBox_TextChanged" Grid.ColumnSpan="2" Margin="0,-31,0,0"/>
         </Grid>
+        <TextBox x:Name="txtNomeArquivo" HorizontalAlignment="Left" Margin="147,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="144"/>
+        <Label Content="Insira o nome do arquivo:" HorizontalAlignment="Left" Margin="147,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.009,-0.037" Width="144"/>
+        <Button x:Name="btnSalvarNomeArquivo" Content="Salvar" HorizontalAlignment="Left" Margin="296,29,0,0" VerticalAlignment="Top" Height="18" Click="btnSalvarNomeArquivo_Click"/>
     </Grid>
 </Window>
