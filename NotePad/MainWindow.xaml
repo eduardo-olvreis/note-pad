@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NotePad"
         mc:Ignorable="d"
+        Closing="Window_Closing"
         Title="MainWindow" Height="291" Width="357" Topmost="True">
     <Grid>
         <Label x:Name="lblPrincipal" Content="Anotações" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="20" FontFamily="Segoe UI Semibold"/>

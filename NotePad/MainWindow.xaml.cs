@@ -30,7 +30,7 @@ namespace NotePad
 
         private void txtBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if(txtBox.Text.Length > 0)
+            if (txtBox.Text.Length > 0)
             {
                 txtPlaceholder.Text = "";
             }
@@ -38,21 +38,46 @@ namespace NotePad
             {
                 txtPlaceholder.Text = "Digite suas anotações aqui...";
             }
+
+            if (nomeArquivo.Length > 0)
+            {
+                salvarArquivo();
+            }
         }
 
         private void btnSalvarNomeArquivo_Click(object sender, RoutedEventArgs e)
         {
-            if(txtNomeArquivo.Text.Length > 0)
+            if (txtNomeArquivo.Text.Length > 0)
             {
-                nomeArquivo = txtNomeArquivo.Text;
+                nomeArquivo = txtNomeArquivo.Text.Replace(' ','_');
             }
             else
             {
-                string data = System.DateTime.Now.ToString("dd-MM-yy");
-                nomeArquivo = $"anotacoes_{data}";
+                setarNomeAutomatico();
             }
+            salvarArquivo();
+        }
 
-            System.Diagnostics.Debug.WriteLine(nomeArquivo);
+        private void salvarArquivo()
+        {
+            string nomeArquivoCompleto = $"{nomeArquivo}.txt";
+            string pathArquvioCriado = System.IO.Path.Combine(pastaNotePad, nomeArquivoCompleto);
+            File.WriteAllText(pathArquvioCriado, txtBox.Text);
+        }
+
+        private void setarNomeAutomatico()
+        {
+            string data = System.DateTime.Now.ToString("dd-MM-yy_HH-mm");
+            nomeArquivo = $"anotacoes_{data}";
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (txtBox.Text.Length > 0 && nomeArquivo == "")
+            {
+                setarNomeAutomatico();
+                salvarArquivo();
+            }
         }
     }
 }
